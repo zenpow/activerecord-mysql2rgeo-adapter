@@ -15,9 +15,9 @@ module Arel  # :nodoc:
       end
 
       FUNC_MAP = {
-        "st_wkttosql" => "ST_GeomFromText",
-        "st_wkbtosql" => "ST_GeomFromWKB",
-        "st_length" => "ST_Length"
+        "st_wkttosql" => "GeomFromText",
+        "st_wkbtosql" => "GeomFromWKB",
+        "st_length" => "GLength"
       }.freeze
 
       def st_func(standard_name)

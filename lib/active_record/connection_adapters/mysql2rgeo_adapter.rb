@@ -71,7 +71,7 @@ module ActiveRecord
       def quote(value)
         if RGeo::Feature::Geometry.check_type(value.try(:value_before_type_cast) || value)
           value_before_type_cast = value.value_before_type_cast
-          "ST_GeomFromWKB(0x#{RGeo::WKRep::WKBGenerator.new(hex_format: true, little_endian: true).generate(value_before_type_cast)},#{value_before_type_cast.srid})"
+          "GeomFromWKB(0x#{RGeo::WKRep::WKBGenerator.new(hex_format: true, little_endian: true).generate(value_before_type_cast)},#{value_before_type_cast.srid})"
         else
           super
         end
